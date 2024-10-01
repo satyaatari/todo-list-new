@@ -18,13 +18,10 @@ Follow the steps below to set up and run the application:
    ```bash
    git clone <repository-url>
 
-2. Navigate to the project directory:
-cd <project-directory>
-
-3. Install the dependencies:
+2. Install the dependencies:
 npm install
 
-4. Start the development server:
+3. Start the development server:
 npm run dev
 
 
@@ -56,7 +53,7 @@ Each user will only see and manage their own tasks.
 
 Data Persistence:
 State management is handled using Redux.
-Redux Persist is used to retain user data (tasks and login state) across page reloads. The data persists until the browser session is closed.
+Redux Persist is used to retain user data (tasks and login state) across page reloads.
 
 
 Profile Page:
