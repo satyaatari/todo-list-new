@@ -30,8 +30,8 @@ const AddTodoForm: React.FC = () => {
     } else if(!validateName(name)) {
       setNameError('Please enter valid data');
       isValid = false;
-    } else if (name.length > 500) {
-      setNameError('To Do cannot exceed 500 characters.');
+    } else if (name.length > 250) {
+      setNameError('To Do cannot exceed 250 characters.');
       isValid = false;
     } else {
       setNameError('');

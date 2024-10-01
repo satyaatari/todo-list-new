@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
-import { AppBar, Toolbar, IconButton, Typography, Avatar, Button, Box } from "@mui/material";
+import { AppBar, Toolbar, IconButton, Typography, Avatar, Button, Box, Tooltip } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from "../store/slices/authSlice";
 import { RootState } from "../store";
+import LogoutIcon from '@mui/icons-material/Logout';
 
 
 const Header: React.FC = () => {
@@ -60,14 +61,20 @@ const Header: React.FC = () => {
             {location.pathname === '/addTodo' ? "Profile" : "Add Todo"}
           </Button>
 
-          <Button
-            variant="contained"
-            color="primary"
-            startIcon={<AddIcon />}
-            onClick={handleLogout}
-          >
-            Logout
-          </Button>
+          {location.pathname !== '/profile' && ( 
+            <Tooltip title="Log Out">
+            <Button
+              variant="contained"
+              color="primary"
+              startIcon={<LogoutIcon />}
+              onClick={handleLogout}
+            >
+              <title>Log Out</title>
+              
+            </Button>
+            </Tooltip>
+        )}
+
 
           
           <IconButton onClick={location.pathname === '/profile' ? handleLogout : handleProfileNavigation}>

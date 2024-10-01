@@ -30,20 +30,20 @@ const SignUp: React.FC = () => {
     let isValid = true;
 
     if (!name.trim()) {
-      setNameError('Name is required');
+      setNameError('Name is required.');
       isValid = false;
     } else if(!validateName(name)) {
-      setNameError('Please enter a valid name');
+      setNameError('Please enter a valid name (alphabets only).');
       isValid = false;
     } else {
       setNameError('');
     }
 
     if (!email.trim()) {
-      setEmailError('Email is required');
+      setEmailError('Email is required.');
       isValid = false;
     } else if (!validateEmail(email)) {
-      setEmailError('Please enter a valid email');
+      setEmailError('Please enter a valid email.');
       isValid = false;
     } else {
       setEmailError('');
@@ -53,7 +53,7 @@ const SignUp: React.FC = () => {
       dispatch(login({ name, email }));
       toast.success("Signup successful! Welcome!", {
         position: "top-right",
-        autoClose: 3000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,

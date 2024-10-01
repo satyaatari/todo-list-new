@@ -62,6 +62,19 @@ const todoSlice = createSlice({
         }
       }
     },
+    updateTodo: (
+      state,
+      action: PayloadAction<{ id: string; userId: string; name: string }>
+    ) => {
+      const todo = state.todos.find(
+        (t) => t.id === action.payload.id && t.userId === action.payload.userId
+      );
+      if (todo) {
+        todo.name = action.payload.name;
+      } else {
+        state.error = "Todo not found or UserId does not match.";
+      }
+    },
   }
 });
 

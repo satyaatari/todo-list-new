@@ -30,18 +30,44 @@ npm run dev
 
 5. Open the application in your browser (usually at http://localhost:5173/)
 
-Features
-Sign Up Page: Users can enter their name and email to sign up.
+Application Features:
 
-Todo List Page: After signing up, users are redirected to the Todo List page where they can:
+Sign-Up Page:
 
-Add tasks.
-View their task list.
-Update task status.
-Remove tasks.
-Data Persistence: The application uses Redux for state management, and data persistence is handled using Redux Persist. The data will be retained until the browser is closed.
+Users can sign up by entering their name and email.
+Upon successful sign-up, the user is logged in automatically.
 
-Profile Page: Users can navigate to the profile page by clicking the user icon or the Profile button in the header. On the profile page:
 
-If the user clicks the user icon, they will be logged out and redirected back to the Sign Up page.
+Todo List Page:
+
+After signing up, users are redirected to their personal Todo List page.
+Features of the Todo List page:
+
+Add Tasks: Users can add new tasks to their list.
+
+View Tasks: Users can view only their own tasks.
+
+Update Task Status: Users can mark tasks as complete or incomplete.
+
+Remove Tasks: Users can delete tasks from their list.
+
+Each user will only see and manage their own tasks.
+
+
+Data Persistence:
+State management is handled using Redux.
+Redux Persist is used to retain user data (tasks and login state) across page reloads. The data persists until the browser session is closed.
+
+
+Profile Page:
+Users can navigate to the Profile page by clicking the user icon or the "Profile" button in the header.
+Profile Page Features:
+
+Logout Button: When clicked, the user is logged out and redirected to the Sign-Up page.
+
+To Do Validation: 
+1. Allow only alphabets and spaces.
+2. To Do cannot exceed 250 characters.
+
+
 

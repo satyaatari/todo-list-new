@@ -8,7 +8,7 @@ import TodoList from './components/todo-list';
 
 const App: React.FC = () => {
   return (
-    <Router>  {/* Ensure you wrap your application in Router */}
+    <Router>  
       <Routes>
         <Route path="/" element={<SignUp />} />
         <Route path="/profile" element={<Profile />} />
