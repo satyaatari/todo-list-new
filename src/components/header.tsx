@@ -26,9 +26,9 @@ const Header: React.FC = () => {
 
   const handleAddTodo = () => {
     if (location.pathname === '/addTodo') {
-      // Optional: You can add logic if you want to do something when on the addTodo page
+      // Optional
     } else {
-      navigate("/addTodo"); // Navigate to Add Todo page
+      navigate("/addTodo");
     }
   };
 
@@ -50,7 +50,7 @@ const Header: React.FC = () => {
         </Typography>
 
         <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-          {/* Add Todo or Profile Button */}
+          
           <Button
             variant="contained"
             color="primary"
@@ -60,7 +60,16 @@ const Header: React.FC = () => {
             {location.pathname === '/addTodo' ? "Profile" : "Add Todo"}
           </Button>
 
-          {/* User Avatar */}
+          <Button
+            variant="contained"
+            color="primary"
+            startIcon={<AddIcon />}
+            onClick={handleLogout}
+          >
+            Logout
+          </Button>
+
+          
           <IconButton onClick={location.pathname === '/profile' ? handleLogout : handleProfileNavigation}>
             <Avatar alt="User Avatar" />
           </IconButton>

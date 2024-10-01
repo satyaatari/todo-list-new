@@ -82,7 +82,7 @@ const SignUp: React.FC = () => {
             sx={{
               fontWeight: 'bold',
               textAlign: 'center',
-              color: '#1976d2', // Primary blue color
+              color: '#1976d2',
             }}
           >
             Welcome!
@@ -90,13 +90,13 @@ const SignUp: React.FC = () => {
           <Typography
             component="h1"
             variant="h5"
-            sx={{ textAlign: 'center', color: '#555' }} // Soft text color
+            sx={{ textAlign: 'center', color: '#555' }}
           >
             Please Sign Up to continue
           </Typography>
 
           <Box sx={{ mt: 3, width: '100%' }}>
-            {/* Name Input */}
+            
             <TextField
               fullWidth
               label="Name"
@@ -109,7 +109,7 @@ const SignUp: React.FC = () => {
               helperText={nameError}
             />
 
-            {/* Email Input */}
+            
             <TextField
               fullWidth
               label="Email"
@@ -123,7 +123,7 @@ const SignUp: React.FC = () => {
               helperText={emailError} 
             />
 
-            {/* Sign Up Button */}
+            
             <Button
               type="submit"
               onClick={handleLogin}
