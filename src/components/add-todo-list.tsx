@@ -30,6 +30,9 @@ const AddTodoForm: React.FC = () => {
     } else if(!validateName(name)) {
       setNameError('Please enter valid data');
       isValid = false;
+    } else if (name.length > 500) {
+      setNameError('To Do cannot exceed 500 characters.');
+      isValid = false;
     } else {
       setNameError('');
     }
@@ -43,25 +46,25 @@ const AddTodoForm: React.FC = () => {
   return (
     <>
     <Header></Header>
-    <Container maxWidth="md">
-      <Box sx={{ my: 4 }}>
+    <Container maxWidth="lg">
+      <Box sx={{ my: 6 }}>
           <Typography variant="h2" component="h1" gutterBottom align="center">
-            Todo List
+            To Do List
           </Typography>
     <Box sx={{ display: "flex", flexDirection: "column", gap: 4 }}>
       
         <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
           <TextField
-            label="Todo Name"
+            label="To Do Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            placeholder="Enter Todo"
+            placeholder="Enter To Do"
             fullWidth
             error={!!nameError}
             helperText={nameError}
           />
           <Button type="submit" onClick={handleSubmit} variant="contained" color="primary">
-            Add Todo
+            Add To Do
           </Button>
         </Box>
       

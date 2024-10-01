@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextField, Button, Typography, Container, Box } from '@mui/material';
+import { TextField, Button, Typography, Container, Box, Paper } from '@mui/material';
 import { login } from '../store/slices/authSlice';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -33,9 +33,9 @@ const SignUp: React.FC = () => {
       setNameError('Name is required');
       isValid = false;
     } else if(!validateName(name)) {
-      setNameError('Please enter valid name');
+      setNameError('Please enter a valid name');
       isValid = false;
-    }else {
+    } else {
       setNameError('');
     }
 
@@ -53,7 +53,7 @@ const SignUp: React.FC = () => {
       dispatch(login({ name, email }));
       toast.success("Signup successful! Welcome!", {
         position: "top-right",
-        autoClose: 3000, // Automatically close after 3 seconds
+        autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -61,53 +61,82 @@ const SignUp: React.FC = () => {
       });
       navigate('/addTodo');
     }
-    
   };
-
-  
 
   return (
     <Container maxWidth="sm">
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          mt: 8,
-        }}
-      >
-        <Typography component="h1" variant="h5">
-          Sign Up
-        </Typography>
-        <Box sx={{ mt: 3 }}>
-          <TextField
-            fullWidth
-            label="Name"
-            name="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            margin="normal"
-            required
-            error={!!nameError}
-            helperText={nameError}
-          />
-          <TextField
-            fullWidth
-            label="Email"
-            name="email"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            margin="normal"
-            required
-            error={!!emailError} 
-            helperText={emailError} 
-          />
-          <Button type="submit" onClick={handleLogin} fullWidth variant="contained" sx={{ mt: 2 }}>
-            Sign Up
-          </Button>
+      <Paper elevation={3} sx={{ padding: 4, mt: 8 }}>
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: 2,
+          }}
+        >
+          {/* Welcome Header */}
+          <Typography
+            variant="h3"
+            component="div"
+            gutterBottom
+            sx={{
+              fontWeight: 'bold',
+              textAlign: 'center',
+              color: '#1976d2', // Primary blue color
+            }}
+          >
+            Welcome!
+          </Typography>
+          <Typography
+            component="h1"
+            variant="h5"
+            sx={{ textAlign: 'center', color: '#555' }} // Soft text color
+          >
+            Please Sign Up to continue
+          </Typography>
+
+          <Box sx={{ mt: 3, width: '100%' }}>
+            {/* Name Input */}
+            <TextField
+              fullWidth
+              label="Name"
+              name="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              margin="normal"
+              required
+              error={!!nameError}
+              helperText={nameError}
+            />
+
+            {/* Email Input */}
+            <TextField
+              fullWidth
+              label="Email"
+              name="email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              margin="normal"
+              required
+              error={!!emailError} 
+              helperText={emailError} 
+            />
+
+            {/* Sign Up Button */}
+            <Button
+              type="submit"
+              onClick={handleLogin}
+              fullWidth
+              variant="contained"
+              color="primary"
+              sx={{ mt: 3, padding: '10px 0', fontSize: '16px' }}
+            >
+              Sign Up
+            </Button>
+          </Box>
         </Box>
-      </Box>
+      </Paper>
     </Container>
   );
 };

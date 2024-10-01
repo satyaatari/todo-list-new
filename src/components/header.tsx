@@ -46,7 +46,7 @@ const Header: React.FC = () => {
       <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
         {/* App Title */}
         <Typography variant="h6" component="div">
-          Todo App
+          To Do App
         </Typography>
 
         <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
